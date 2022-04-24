@@ -96,27 +96,35 @@
     <div style="width: 100%; height: 100%; background-color: lightblue; position: absolute; top: 0; right: 0; left: 0; bottom: 0; transition: 0.3s; z-index: 10; display: flex; justify-content: center; align-items: center;" id="loading"><span class="loader"></span></div>
     <h1>Ievos gimtadienis:)</h1>
     <div style="width: 100%; height: 100px; bottom: 0; left: 0; right: 0; position: absolute; background-image: url(cake2.png); background-size: contain; background-position: center;"></div>
-    <video src="pupulio-kalba.mp4" style="width: 90%; transition: 0.3s; height: auto; border: 5px solid lightblue; border-radius: 15px; margin-top: 20px;" id="video"></video>
-    <button style="width: 200px; height: 50px; display: flex; justify-content: center; align-items: center; display: none; margin: 20px auto; border: none; opacity: 0; background-color: lightblue; border-radius: 15px; cursor: pointer;" id="playAgain" onclick="replay()">Leisti dar kartą</button>
-    <button style="width: 100px; height: 50px; display: flex; justify-content: center; align-items: center; margin: 20px auto; border: none; opacity: 1; background-color: lightblue; border-radius: 15px; cursor: pointer;" id="play" onclick="play()">Leisti</button>
+    <span class="loader" style="position: absolute; top: 185px; left: 43%; right: 0; opacity: 0; transition: 0.3s;" id="load"></span>
+    <video src="svetaine.mp4" style="width: 90%; transition: 0.3s; height: auto; border: 5px solid lightblue; border-radius: 15px; margin-top: 20px;" id="video"></video>
+    <button style="width: 200px; height: 50px; display: flex; justify-content: center; align-items: center; display: none; margin: 20px auto; border: none; opacity: 0; background-color: lightblue; border-radius: 15px; cursor: pointer; transition: 0.3s;" id="playAgain" onclick="replay()">Leisti dar kartą</button>
+    <button style="width: 100px; height: 50px; display: flex; justify-content: center; align-items: center; margin: 20px auto; border: none; opacity: 1; background-color: lightblue; border-radius: 15px; cursor: pointer; transition: 0.3s;" id="play" onclick="play()">Leisti</button>
     <script>
         setTimeout(() => {  document.getElementById('loading').style.top = "-120%"; }, 10000);
         function play() {
         var vid = document.getElementById("video");
-        vid.play();
+        document.getElementById('load').style.opacity = "1";
+        setTimeout(() => {  vid.play(); }, 5000);
+        setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 5000);
         document.getElementById('play').style.opacity = "0";
         setTimeout(() => {  document.getElementById('play').style.display = "none"; }, 300);
-        setTimeout(() => {  vid.style.opacity = "0.1"; }, 8500);
-        setTimeout(() => {  document.getElementById('playAgain').style.display = "block"; }, 8450);
-        setTimeout(() => {  document.getElementById('playAgain').style.opacity = "1"; }, 8500);
+        setTimeout(() => {  vid.style.opacity = "0.1"; }, 16000);
+        setTimeout(() => {  document.getElementById('playAgain').style.display = "block"; }, 15950);
+        setTimeout(() => {  document.getElementById('playAgain').style.opacity = "1"; }, 16000);
         }
         function replay() {
-            var vid = document.getElementById("video");
-            document.getElementById('playAgain').style.opacity = "0";
-            vid.style.opacity = "1";
-            setTimeout(() => {  vid.play(); }, 500);
-            setTimeout(() => {  vid.style.opacity = "0.1"; }, 9000);
-            setTimeout(() => {  document.getElementById('playAgain').style.opacity = "1"; }, 9000);
+          var vid = document.getElementById("video");
+        document.getElementById('load').style.opacity = "1";
+        vid.currentTime = 0;
+        vid.style.opacity = "1";
+        setTimeout(() => {  vid.play(); }, 5000);
+        setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 5000);
+        document.getElementById('playAgain').style.opacity = "0";
+        setTimeout(() => {  document.getElementById('playAgain').style.display = "none"; }, 300);
+        setTimeout(() => {  vid.style.opacity = "0.1"; }, 16000);
+        setTimeout(() => {  document.getElementById('playAgain').style.display = "block"; }, 15950);
+        setTimeout(() => {  document.getElementById('playAgain').style.opacity = "1"; }, 16000);
         }
     </script>
 </body>
