@@ -102,6 +102,12 @@
     <button style="width: 100px; height: 50px; display: flex; justify-content: center; align-items: center; margin: 20px auto; border: none; opacity: 1; background-color: lightblue; border-radius: 15px; cursor: pointer; transition: 0.3s;" id="play" onclick="play()">Leisti</button>
     <script>
         setTimeout(() => {  document.getElementById('loading').style.top = "-120%"; }, 10000);
+        var vid = document.getElementById("video");
+        vid.onended = function() {
+          document.getElementById('playAgain').style.display = "block";
+          setTimeout(() => {  document.getElementById('playAgain').style.opacity = "1"; }, 50);
+          setTimeout(() => {  vid.style.opacity = "0.1"; }, 50);
+        };
         function play() {
         var vid = document.getElementById("video");
         document.getElementById('load').style.opacity = "1";
@@ -109,8 +115,6 @@
         setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 5000);
         document.getElementById('play').style.opacity = "0";
         setTimeout(() => {  document.getElementById('play').style.display = "none"; }, 300);
-        setTimeout(() => {  document.getElementById('playAgain').style.display = "block"; }, 15950);
-        setTimeout(() => {  document.getElementById('playAgain').style.opacity = "1"; }, 16000);
         }
         function replay() {
           var vid = document.getElementById("video");
@@ -120,10 +124,7 @@
         setTimeout(() => {  vid.play(); }, 5000);
         setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 5000);
         document.getElementById('playAgain').style.opacity = "0";
-        setTimeout(() => {  vid.style.opacity = "0.1"; }, 16000);
         setTimeout(() => {  document.getElementById('playAgain').style.display = "none"; }, 300);
-        setTimeout(() => {  document.getElementById('playAgain').style.display = "block"; }, 15950);
-        setTimeout(() => {  document.getElementById('playAgain').style.opacity = "1"; }, 16000);
         }
     </script>
 </body>
