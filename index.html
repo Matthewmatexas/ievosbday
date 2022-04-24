@@ -56,7 +56,80 @@
             border-radius: 15px;
             border: 5px solid pink;
         }
+        .loader {
+        transform: rotateZ(45deg) scale(1.7);
+        perspective: 1000px;
+        border-radius: 50%;
+        width: 48px;
+        height: 48px;
+        color: #fff;
+      }
+        .loader:before,
+        .loader:after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 0;
+          width: inherit;
+          height: inherit;
+          border-radius: 50%;
+          transform: rotateX(70deg);
+          animation: 1s spin linear infinite;
+        }
+        .loader:after {
+          color: pink;
+          transform: rotateY(70deg);
+          animation-delay: .4s;
+        }
+
+      @keyframes rotate {
+        0% {
+          transform: translate(-50%, -50%) rotateZ(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotateZ(360deg);
+        }
+      }
+
+      @keyframes rotateccw {
+        0% {
+          transform: translate(-50%, -50%) rotate(0deg);
+        }
+        100% {
+          transform: translate(-50%, -50%) rotate(-360deg);
+        }
+      }
+
+      @keyframes spin {
+        0%,
+        100% {
+          box-shadow: .2em 0px 0 0px currentcolor;
+        }
+        12% {
+          box-shadow: .2em .2em 0 0 currentcolor;
+        }
+        25% {
+          box-shadow: 0 .2em 0 0px currentcolor;
+        }
+        37% {
+          box-shadow: -.2em .2em 0 0 currentcolor;
+        }
+        50% {
+          box-shadow: -.2em 0 0 0 currentcolor;
+        }
+        62% {
+          box-shadow: -.2em -.2em 0 0 currentcolor;
+        }
+        75% {
+          box-shadow: 0px -.2em 0 0 currentcolor;
+        }
+        87% {
+          box-shadow: .2em -.2em 0 0 currentcolor;
+        }
+      }
     </style>
+    <div style="width: 100%; height: 100%; background-color: lightblue; position: absolute; top: 0; right: 0; left: 0; bottom: 0; transition: 0.3s; z-index: 10; display: flex; justify-content: center; align-items: center;" id="loading"><span class="loader"></span></div>
     <h1>Ievos gimtadienis:)</h1>
     <p>Pupulis sveikina Ievą su gimtadieniu:)</p>
     <p>Įvedus kodą pasieksi tikslą:)</p>
@@ -74,6 +147,7 @@
     <div id="kodas"><h1>Įvesti kodą</h1><form><input type="text" placeholder="0000000000IEVOSGIMTD" maxlength="20" name="pin"><button type="button" class="btn-login" onclick="check(this.form)" style="width: 100px; height: 50px; display: flex; justify-content: center; align-items: center; margin: 20px auto; border: none; background-color: pink; border-radius: 15px; cursor: pointer;">Patvirtinti</button></form><img src="cake.png" alt="TORTAS" style="width: 100%;"><div style="width: 100%; height: 100px; bottom: 0; left: 0; right: 0; position: absolute; background-image: url(cake2.png); background-size: contain; background-position: center;"></div><p style="color: red; position: absolute; top: 220px; opacity: 0; width: 100%; transition: 0.3s;" id="negalioja">Kodas negalioja</p><p style="color: black; position: absolute; top: 220px; opacity: 0; width: 100%; transition: 0.3s;" id="tikrinama">Kodas tikrinamas...</p><p style="color: green; position: absolute; top: 220px; opacity: 0; width: 100%; transition: 0.3s;" id="galioja">Kodas galioja</p></div>
     <div id="nextStep"><div style="width: 100%; height: 100px; bottom: 0; left: 0; right: 0; position: absolute; background-image: url(cake2.png); background-size: contain; background-position: center;"></div><h1>Pupulis sveikina Ievą su gimtadieniu:)</h1><video src="pupulio-kalba.mp4" style="width: 90%; transition: 0.3s; height: auto; border: 5px solid pink; border-radius: 15px; margin-top: 20px;" id="video"></video><button style="width: 200px; height: 50px; display: flex; justify-content: center; align-items: center; margin: 20px auto; border: none; opacity: 0; background-color: pink; border-radius: 15px; cursor: pointer;" id="playAgain" onclick="replay()">Leisti dar kartą</button></div>
     <script>
+        setTimeout(() => {  document.getElementById('loading').style.top = "-120%"; }, 10000);
         function check(form)
         {
             var vid = document.getElementById("video");
