@@ -167,13 +167,10 @@
                 setTimeout(() => {  document.getElementById('nextStep').style.top = "0"; }, 7000);
                 var vid = document.getElementById("video");
                 document.getElementById('load').style.opacity = "1";
-                setTimeout(() => {  vid.play(); }, 12500);
-                setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 12500);
-                setTimeout(() => {  document.getElementById('play').style.opacity = "0"; }, 12500);
-                setTimeout(() => {  document.getElementById('play').style.display = "none"; }, 12800);
-                setTimeout(() => {  vid.style.opacity = "0.1"; }, 21000);
-                setTimeout(() => {  document.getElementById('playAgain').style.display = "block"; }, 20950);
-                setTimeout(() => {  document.getElementById('playAgain').style.opacity = "1"; }, 21000);
+                setTimeout(() => {  vid.play(); }, 17000);
+                setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 17000);
+                setTimeout(() => {  document.getElementById('play').style.opacity = "0"; }, 17000);
+                setTimeout(() => {  document.getElementById('play').style.display = "none"; }, 17300);
                 }
             else{
                 document.getElementById('negalioja').style.opacity = "0";
@@ -188,8 +185,8 @@
         document.getElementById('load').style.opacity = "1";
         vid.style.opacity = "1";
         vid.currentTime = 0;
-        setTimeout(() => {  vid.play(); }, 5000);
-        setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 5000);
+        setTimeout(() => {  vid.play(); }, 10000);
+        setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 10000);
         document.getElementById('playAgain').style.opacity = "0";
         setTimeout(() => {  document.getElementById('playAgain').style.display = "none"; }, 300);
         }

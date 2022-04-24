@@ -111,8 +111,8 @@
         function play() {
         var vid = document.getElementById("video");
         document.getElementById('load').style.opacity = "1";
-        setTimeout(() => {  vid.play(); }, 5000);
-        setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 5000);
+        setTimeout(() => {  vid.play(); }, 10000);
+        setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 10000);
         document.getElementById('play').style.opacity = "0";
         setTimeout(() => {  document.getElementById('play').style.display = "none"; }, 300);
         }
@@ -121,8 +121,8 @@
         document.getElementById('load').style.opacity = "1";
         vid.currentTime = 0;
         vid.style.opacity = "1";
-        setTimeout(() => {  vid.play(); }, 5000);
-        setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 5000);
+        setTimeout(() => {  vid.play(); }, 10000);
+        setTimeout(() => {  document.getElementById('load').style.opacity = "0"; }, 10000);
         document.getElementById('playAgain').style.opacity = "0";
         setTimeout(() => {  document.getElementById('playAgain').style.display = "none"; }, 300);
         }
